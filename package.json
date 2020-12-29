@@ -92,6 +92,6 @@
     "dest": "dist"
   },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^2.0.3"
   }
 }
