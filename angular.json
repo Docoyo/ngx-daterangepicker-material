@@ -122,6 +122,51 @@
           }
         }
       }
+    },
+    "daterangepicker": {
+      "projectType": "library",
+      "root": "projects/daterangepicker",
+      "sourceRoot": "projects/daterangepicker/src",
+      "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/daterangepicker/tsconfig.lib.json",
+            "project": "projects/daterangepicker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/daterangepicker/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/daterangepicker/src/test.ts",
+            "tsConfig": "projects/daterangepicker/tsconfig.spec.json",
+            "karmaConfig": "projects/daterangepicker/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/daterangepicker/tsconfig.lib.json",
+              "projects/daterangepicker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-daterangepicker-material",
