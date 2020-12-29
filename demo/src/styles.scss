@@ -1,6 +1,31 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import '../../node_modules/materialize-css/sass/materialize.scss';
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/theming";
+@include mat-core();
+// @import '../../node_modules/materialize-css/sass/materialize.scss';
+@import '../../src/daterangepicker/daterangepicker-theme.scss';
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn:    mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as `color` or `typography`.
+$candy-app-theme: mat-light-theme((
+  color: (
+    primary: $candy-app-primary,
+    accent: $candy-app-accent,
+    warn: $candy-app-warn,
+  )
+));
+
+@include angular-material-theme($candy-app-theme);
+@include daterangepicker-theme($candy-app-theme);
 .mycustomdate {
     background-color: #ccc8c8 !important;
     border-radius: 1px !important;
@@ -24,3 +49,4 @@
 .first-next-day {
     background-color: rgb(229, 255, 0) !important;
 }
+
